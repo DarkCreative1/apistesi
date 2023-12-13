@@ -1,0 +1,222 @@
+body {
+    background-image: url('background.jpg');/* Resminizin URL'sini buraya ekleyin */
+    background-size: cover;  /* Resmin ekranı kaplamasını sağlar */
+    background-repeat: no-repeat; /* Resmin tekrarlamasını engeller */
+    background-attachment: fixed; /* Arka planın sabit kalmasını sağlar */
+    background-position: center center; /* Resmin merkezinin her zaman ortada olmasını sağlar */
+    height: 100vh; /* viewport'un yüksekliğini alır, böylece container'ı bu yükseklik içinde ortalamak mümkün olur */
+    margin: 0; /* Kenar boşluklarını sıfırlar */
+    display: flex; /* flexbox özelliğini etkinleştirir */
+    justify-content: center; /* yatayda merkezler */
+    position: relative; /* diğer içerikleri pozisyonlamak için başlangıç ​​noktası olarak kullanılır */
+    align-items: flex-start; /* Bu, dikeyde üste hizalar */
+    font-family: Arial, sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 3px; /* Yan scrollbar'ın genişliği */
+    height: 50px;
+    
+}
+
+/* Scrollbar'ın parçası (hareket eden kısım) için gradyan arkaplan */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #8800ff, #ed5180); /* Gradyan renkleri burada tanımlanır */
+    border-radius: 10px; /* Yuvarlatılmış köşeler */
+}
+
+/* Scrollbar'ın track kısmı (hareket eden parçanın dışındaki alan) için siyah arkaplan */
+::-webkit-scrollbar-track {
+    background: #000; /* Siyah arkaplan */
+}
+
+
+.container {
+    width: 700px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    position: absolute;
+    top: 50%; /* Bu yukarıdan dikey pozisyonunu belirler. */
+    left: 50%; /* Yatayda merkezleme için */
+    transform: translateX(-50%); /* Yatayda tam olarak ortalanmasını sağlar. Dikey olarak herhangi bir dönüşüm uygulamıyoruz. */
+    padding-bottom:10%; 
+}
+
+.header {
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 10%;
+    left:50%;
+    transform: translateX(-50%);
+    padding-bottom: 10%;
+}
+
+.header h1 {
+    font-size: 50px;
+    color: #ffffff;
+    position: relative;
+    margin-bottom: 20px;
+    margin-right: 25px; 
+}
+
+.links {
+    display: flex;           /* Linkleri yan yana getir */
+    justify-content: center; /* Linkleri merkezde hizalama */
+    margin-right: 25px;
+}
+
+.header a {
+    text-decoration: none;
+    color: #ffffff;
+    display: inline-block;   
+    font-size: 14px;
+    width: 125px;
+    height: 30px;
+    line-height: 30px;      /* Dikey ortalamada bu yeterli */
+    text-align: center;     /* Yatayda metni ortala */
+    background-color: #9000ff9b;
+    margin-right: 10px;
+    border-radius: 15px;
+}
+
+
+
+.box {
+    height: 150px;
+    width: 200px;
+    background: #ed518019;
+    border-radius: 15px;
+    margin: 10px;
+    position: relative; /* Bu, .link'in pozisyonlandırılma referansını oluşturur */
+    
+}
+
+.box h1 {
+    color: #fff;
+    text-align: center;
+    font-size: 25px;
+}
+
+.box p {
+    color: #fff;
+    text-align: center;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.box .link {
+    display: block; /* Böylece genişlik ve yükseklik ayarlamalarını yapabiliriz */
+    width: 40px;   /* Genişlik 80px */
+    height: 40px;  /* Yükseklik 20px */
+    line-height: 40px;
+    background-color: #9000ff; /* Arka plan rengi mor */
+    color: #fff; /* Yazı rengi beyaz */
+    text-decoration: none;
+    text-align: center;
+    border-radius: 50%; /* Hafif yuvarlatılmış köşeler */
+    margin: 20px auto 0; /* Üstten 10px boşluk ve yatayda merkezde */
+    font-size: 20px;
+    font-weight: 900;
+    position: absolute; /* Sabit bir konumlandırma sağlar */
+    bottom: -15px; /* .box'ın altından 10px yukarıda konumlandırır */
+    left: 50%; /* Yatayda merkezleme için */
+    transform: translateX(-50%);
+}
+
+@keyframes heart {
+    0% { transform: scale(.85) }
+    5% { transform: scale(1) }
+   39% { transform: scale(.75) }
+   45% { transform: scale(.9) }
+   60% { transform: scale(.85) }
+  100% { transform: scale(.8) }
+}
+.heart > div {
+  animation: heart 1.5s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+  transform-origin: 100px 100px;
+}
+.heart > div div {
+  top: 72px;
+  left: 60px;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: #8a42ff;
+  transform: rotate(45deg);
+}
+.heart > div div:after, .heart > div div:before {
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 80px;
+  height: 80px;
+  background: #8a42ff;
+}
+.heart > div div:before {
+  left: -52px;
+  border-radius: 50% 0 0 50%;
+}
+.heart > div div:after {
+  top: -52px;
+  border-radius: 50% 50% 0 0;
+} 
+.zuzia-heart {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  overflow: hidden;
+}
+.heart {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  transform-origin: 0 0;
+}
+.heart div { box-sizing: content-box; }
+
+.zuzia-heart, .heart {
+    position: absolute; /* Konumu mutlak yap */
+    top: 50%; /* Üst kenardan yarıya kadar konumlandır */
+    left: 50%; /* Sol kenardan yarıya kadar konumlandır */
+    transform: translate(-50%, -50%); /* Tam olarak merkeze al */
+  }
+  
+
+@media screen and (max-width: 600px){
+    body {
+        display: block;
+        align-items: unset;
+    }
+
+    .container {
+        width: 100%; 
+        height: auto;
+        position: static; 
+        top: 0; 
+        left: 0;
+        transform: none;
+        flex-wrap: wrap;
+    }
+
+    .box {
+        width: 90%; /* kutu genişliği, kutu arasında hafif bir marj bırakacak şekilde ayarlanır */
+        height: auto;
+        margin: 5% auto;
+    }
+
+    .box .link {
+        position: static; /* link'in pozisyonu statik yapılarak doğal akış içinde yer alır */
+        width: auto;
+        height: auto;
+        margin: 20px 0;
+        left: auto;
+        bottom: auto;
+        transform: none;
+    }
+}
